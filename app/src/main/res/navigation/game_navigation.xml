@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_navigation"
+    app:startDestination="@id/mainFragment2">
+    <fragment
+        android:id="@+id/mainFragment2"
+        android:name="com.jeremy.adv160420020week2.MainFragment"
+        android:label="Main Screen"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/actionGameFragment"
+            app:destination="@id/gameFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment2"
+        android:name="com.jeremy.adv160420020week2.GameFragment"
+        android:label="Game Screen"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/actionMainFragment"
+            app:destination="@id/mainFragment2" />
+        <argument
+            android:name="player_name"
+            app:argType="string" />
+        <action
+            android:id="@+id/actionResultFragment"
+            app:destination="@id/resultFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment2"
+        android:name="com.jeremy.adv160420020week2.ResultFragment"
+        android:label="Result Screen "
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/actionBackToMainScreen"
+            app:destination="@id/mainFragment2" />
+    </fragment>
+</navigation>

@@ -40,26 +40,32 @@ class GameFragment : Fragment() {
             Navigation.findNavController(it).navigate(action)
         }
 
+        //Random Angka 1 Sampai 50
+        val random = Random()
+        val numberone = random.nextInt(200)
+        val numbertwo = random.nextInt(200)
+
+        //Deklarasi Variabel Untuk Menampung Angka Random
+        val oneNumber = view.findViewById<TextView>(R.id.txtAngka1)
+        val twoNumber = view.findViewById<TextView>(R.id.txtAngka2)
+        oneNumber.text = "$numberone"
+        twoNumber.text = "$numbertwo"
+
+
         val submitAnswerBtn = view.findViewById<Button>(R.id.btnSubmitAnswer)
         submitAnswerBtn.setOnClickListener {
-            val action = GameFragmentDirections.actionResultFragment()
-            Navigation.findNavController(it).navigate(action)
+            //Hitung Pertambahan
+            val hitung = numberone + numbertwo
+
             val result = view.findViewById<EditText>(R.id.txtHasil)
-            val random = Random()
-            val numberone = random.nextInt(10)
-            val numbertwo = random.nextInt(20)
-
-            //Deklarasi Variabel Untuk Menampung Angka Random
-            var oneNumber = view.findViewById<TextView>(R.id.txtAngka1)
-            var twoNumber = view.findViewById<TextView>(R.id.txtAngka2)
-
-            oneNumber.text = "$numberone"
-            twoNumber.text = "$numbertwo"
-            val hitung = twoNumber
-            if (result == hitung)
+            if (result.equals(hitung))
             {
-                println("Berhasil")
+                //Score bertambah 1
+                println("Jawaban Anda Benar")
             }
+            //Jika Jawaban Salah Maka Code Dibawah Dijalankan
+            val action = GameFragmentDirections.actionResultFragment(playerScore = 1)
+            Navigation.findNavController(it).navigate(action)
 
         }
     }

@@ -36,5 +36,8 @@
         <action
             android:id="@+id/actionBackToMainScreen"
             app:destination="@id/mainFragment2" />
+        <argument
+            android:name="player_score"
+            app:argType="integer" />
     </fragment>
 </navigation>

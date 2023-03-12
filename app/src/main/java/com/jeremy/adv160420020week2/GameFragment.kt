@@ -50,19 +50,20 @@ class GameFragment : Fragment() {
         val twoNumber = view.findViewById<TextView>(R.id.txtAngka2)
         oneNumber.text = "$numberone"
         twoNumber.text = "$numbertwo"
+        //Hitung Pertambahan
+        val hitung = numberone + numbertwo
 
 
         val submitAnswerBtn = view.findViewById<Button>(R.id.btnSubmitAnswer)
         submitAnswerBtn.setOnClickListener {
-            //Hitung Pertambahan
-            val hitung = numberone + numbertwo
+            //Mengecek apakah jawaban user sama dengan hasil pertambahan
 
-            val result = view.findViewById<EditText>(R.id.txtHasil)
+/*          val result = view.findViewById<EditText>(R.id.txtHasil)
             if (result.equals(hitung))
             {
-                //Score bertambah 1
                 println("Jawaban Anda Benar")
-            }
+                //Score bertambah 1
+            }*/
             //Jika Jawaban Salah Maka Code Dibawah Dijalankan
             val action = GameFragmentDirections.actionResultFragment(playerScore = 1)
             Navigation.findNavController(it).navigate(action)

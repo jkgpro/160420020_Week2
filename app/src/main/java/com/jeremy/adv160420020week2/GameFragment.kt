@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.Navigation
-import com.google.android.material.textfield.TextInputEditText
 import java.util.*
 
 
@@ -50,24 +48,28 @@ class GameFragment : Fragment() {
         val twoNumber = view.findViewById<TextView>(R.id.txtAngka2)
         oneNumber.text = "$numberone"
         twoNumber.text = "$numbertwo"
-        //Hitung Pertambahan
-        val hitung = numberone + numbertwo
-
+        //Deklarasi Variabel Score
+        var playerScore = 0
+        //Hitung Penjumlahan
+        var hitung = numberone + numbertwo
 
         val submitAnswerBtn = view.findViewById<Button>(R.id.btnSubmitAnswer)
         submitAnswerBtn.setOnClickListener {
             //Mengecek apakah jawaban user sama dengan hasil pertambahan
-
-/*          val result = view.findViewById<EditText>(R.id.txtHasil)
-            if (result.equals(hitung))
+            var result = view.findViewById<EditText>(R.id.txtJawaban)
+            if(result.toString() == hitung.toString())
             {
-                println("Jawaban Anda Benar")
-                //Score bertambah 1
-            }*/
-            //Jika Jawaban Salah Maka Code Dibawah Dijalankan
-            val action = GameFragmentDirections.actionResultFragment(playerScore = 1)
-            Navigation.findNavController(it).navigate(action)
-
+                //Jika Jawaban Benar Maka Code Dibawah Dijalankan dengan nilai/skor 1
+                playerScore+=1
+                val action = GameFragmentDirections.actionResultFragment(playerScore)
+                Navigation.findNavController(it).navigate(action)
+            }
+            else if(result.toString() != hitung.toString())
+            {
+                //Jika Jawaban Salah Maka Code Dibawah Dijalankan dengan nilai/skor 0
+                val action = GameFragmentDirections.actionResultFragment(playerScore)
+                Navigation.findNavController(it).navigate(action)
+            }
         }
     }
 }

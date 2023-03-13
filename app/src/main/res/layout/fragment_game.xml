@@ -36,30 +36,10 @@
             android:id="@+id/btnSubmitAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginEnd="124dp"
             android:text="Submit Answer"
             app:layout_constraintBottom_toTopOf="@+id/btnBack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtHasil"
-            app:layout_constraintVertical_bias="0.079" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtHasil"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:hint="Your Answer"
-            app:layout_constraintBottom_toTopOf="@+id/btnBack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTurn">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/txtAngka1"
@@ -88,8 +68,24 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="100dp"
             android:text="+"
+            app:layout_constraintEnd_toStartOf="@+id/txtAngka2"
+            app:layout_constraintHorizontal_bias="0.088"
             app:layout_constraintStart_toEndOf="@+id/txtAngka1"
             app:layout_constraintTop_toBottomOf="@+id/txtTurn" />
+
+        <EditText
+            android:id="@+id/txtJawaban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="71dp"
+            android:layout_marginBottom="52dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/btnSubmitAnswer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
